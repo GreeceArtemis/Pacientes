@@ -22,8 +22,10 @@ var edad=document.getElementById("edad");
 var soloLetras=function(e){
   var codigoTecla=e.keyCode;
   if((codigoTecla>=97 && codigoTecla<=122)||(codigoTecla>=65 && codigoTecla<=90)||codigoTecla==39 || codigoTecla==32){
+    this.nextElementSibling.nextElementSibling.innerText = "";
     return true;
   } else{
+this.nextElementSibling.nextElementSibling.innerText = "SOLO LETRAS";
     return false;
   }
 }
@@ -76,7 +78,7 @@ for(var i=0;i<inputs.length;i++){
 //
 
 enviar.addEventListener('click',function(e) {
-  e.preventDefault();
+  //e.preventDefault();
   var postParent = e.target.parent; // Devuelve el padre
   var nombre=document.getElementById("nombre").value;
   var apellido=document.getElementById("apellido").value;
@@ -84,10 +86,12 @@ enviar.addEventListener('click',function(e) {
   var genero=document.getElementById("genero").value;
   var ciudad=document.getElementById("ciudad").value;
   var pais=document.getElementById("pais").value;
-
-paciente=new alldatos (nombre,apellido,edad,genero,ciudad,pais);
+		e.preventDefault();
+var paciente=new alldatos (nombre,apellido,edad,genero,ciudad,pais);
 baseDatos.push(paciente);//arreglo donde esta todos los pacientes
 //Objeto donde se gurdara los datos de cada paciente
+
+
 function alldatos(nombre,apellido,edad,genero,ciudad,pais){
   this.nombre=nombre;
   this.apellido=apellido;
@@ -125,12 +129,14 @@ if (nombre == "" || apellido == "" || edad == "" || pais == ""|| ciudad == ""){
     else{
       var pacientes = document.getElementById('pacientes');
           numero++;//Numero de Paciente
-      pacientes.appendChild(createPost(paciente,numero));//Asi cada paciente se guarda en un div con su id = Paciente numero
-
+      //pacientes.appendChild(createPost(paciente,numero));//Asi cada paciente se guarda en un div con su id = Paciente numero
+      localStorage.setItem("nuevoPaciente",JSON.stringify(paciente));
+      document.getElementById("fichaDatos").reset();
+      window.location="fichap.html";
     }
   });
 
-  document.getElementById("fichaDatos").reset();
+
 
 
 });

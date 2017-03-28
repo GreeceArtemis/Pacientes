@@ -5,6 +5,9 @@ body{
 form{
   display: inline-block;
   text-align: left;
+  font-style: italic;
+  font-weight: bold;
+
 }
 button{
   margin: 0 auto;
@@ -22,4 +25,35 @@ span{
 }
 #mensajeError{
   color:red;
+}
+#edad
+{
+  width: 60px;
+}
+label{
+  color:white;
+  font-family: italic;
+}
+h1{
+  color:white;
+  font-style: Oswald;
+  text-align: center;
+  margin:center;
+}
+#bienvenida-paciente{
+    width: 200px;
+    border: 1px solid black;
+    margin:0 auto;
+    text-align: left;
+    padding-left: 20px;
+}
+#nombre-paciente,#apellido-paciente,#edad-paciente,#genero-paciente,#ciudad-paciente,#pais-paciente{
+  color: black;
+  margin:0;
+}
+.contenedor-boton{
+  text-align:right;
+}
+.contenedor-boton button{
+  text-align: right;
 }
